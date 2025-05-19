@@ -140,9 +140,15 @@
 }
 
 .sidebar_wrapper .sidebar_menu .menu_item:hover .menu_wrapper,
-.sidebar_wrapper .sidebar_menu .menu_item:hover .menu_wrapper svg {
+.sidebar_wrapper .sidebar_menu .menu_item .menu_wrapper .navActive,
+.sidebar_wrapper .sidebar_menu .menu_item:hover .menu_wrapper svg,
+.sidebar_wrapper .sidebar_menu .menu_item .menu_wrapper .navActive svg {
     color: #308e87;
 }
 
+.sidebar_wrapper .sidebar_menu .menu_item .menu_wrapper .navActive {
+    background: #D6E8E7;
+    border-radius: 5px;
+}
 
 /* side style end*/
