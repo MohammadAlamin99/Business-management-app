@@ -62,27 +62,33 @@
     color: #aaa3a0;
 }
 
-
 .home_page_wrapper .Left_content {
-    width: 256px;
-    max-width: 100%;
-}
-
-.home_page_wrapper .Left_content {
-    display: none;
+    width: 0;
+    transition: width 0.5s ease;
+    overflow: hidden;
+    opacity: 0;
 }
 
 .home_page_wrapper .Left_content.active {
-    display: block;
+    width: 256px;
+    max-width: 100%;
+    opacity: 1;
 }
+
 .home_page_wrapper .Right_content {
     width: calc(100% - 256px);
     height: 100vh;
+    box-shadow: 30px 33px 26px -36px rgba(0, 0, 0, 0.08) inset;
+}
+
+.home_page_wrapper .Right_content.active_width {
+    width: 100%;
 }
 
 .home_page_wrapper {
     background: #F9F7F6;
 }
+
 @media only screen and (max-width: 575px) {
     .Header_wrapper .Header_logo {
         width: fit-content;

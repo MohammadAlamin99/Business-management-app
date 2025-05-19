@@ -4,6 +4,7 @@ import logo from "../assests/image/logo1.png";
 import profile from "../assests/image/profile.png";
 import { RxDashboard } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
+import Link from "next/link";
 const Header = ({ isOpen, setIsOpen }) => {
   const clickHander = () => {
     setIsOpen(!isOpen);
@@ -11,10 +12,12 @@ const Header = ({ isOpen, setIsOpen }) => {
 
   return (
     <div>
-      <div className="Header_wrapper flex items-center justify-between bg-white" onClick={clickHander}>
+      <div className="Header_wrapper flex items-center justify-between bg-white">
         <div className="Header_logo flex items-center justify-between">
-          <Image src={logo} alt="Logo" width={122} height={40} />
-          <div className="icon_wrapper flex items-center justify-center w-9 h-9 cursor-pointer">
+          <Link href={"/"}>
+            <Image src={logo} alt="Logo" width={122} height={40} />
+          </Link>
+          <div className="icon_wrapper flex items-center justify-center w-9 h-9 cursor-pointer" onClick={clickHander}>
             <RxDashboard />
           </div>
         </div>
