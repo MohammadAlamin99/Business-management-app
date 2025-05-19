@@ -7,7 +7,7 @@ import { IoIosArrowDown } from "react-icons/io";
 const Header = () => {
   return (
     <div>
-      <div className="Header_wrapper flex items-center justify-between">
+      <div className="Header_wrapper flex items-center justify-between bg-white">
         <div className="Header_logo flex items-center justify-between">
           <Image src={logo} alt="Logo" width={122} height={40} />
           <div className="icon_wrapper flex items-center justify-center w-9 h-9 cursor-pointer">
