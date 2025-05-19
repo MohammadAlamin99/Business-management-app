@@ -1,46 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    box-sizing: border-box;
-}
-
-ul li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    display: inline-block;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-li,
-ol {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: "Poppins", sans-serif;
-    color: #687188;
-    font-size: 16px;
-    overflow-x: hidden;
-}
-
-button {
-    border: none;
-    cursor: pointer;
-}
 
 :root {
     --primary-font: "Nunito Sans", sans-serif;
@@ -88,6 +47,10 @@ button {
     overflow: hidden;
 }
 
+.admin_wrapper svg {
+    color: #aaa3a0;
+}
+
 .Header_wrapper .Header_profile .profile_name h4,
 .Header_wrapper .Header_profile .profile_name h5 {
     font-family: var(--primary-font);
@@ -96,30 +59,64 @@ button {
 
 .Header_wrapper .Header_profile .profile_name h5 {
     font-weight: 400;
+    color: #aaa3a0;
 }
 
 
-.home_page_wrapper .Left_content{
+.home_page_wrapper .Left_content {
     width: 256px;
     max-width: 100%;
 }
-.home_page_wrapper .Right_content{
+
+.home_page_wrapper .Left_content {
+    display: none;
+}
+
+.home_page_wrapper .Left_content.active {
+    display: block;
+}
+.home_page_wrapper .Right_content {
     width: calc(100% - 256px);
-    background: #F9F7F6;
     height: 100vh;
 }
 
+.home_page_wrapper {
+    background: #F9F7F6;
+}
 @media only screen and (max-width: 575px) {
-.Header_wrapper .Header_logo{
-    width: fit-content;
-    gap: 10px;
-}
-.Header_wrapper .Header_logo img{
-    width: auto;
-}
-.Header_wrapper .Header_profile{
-    width: auto;
-}
+    .Header_wrapper .Header_logo {
+        width: fit-content;
+        gap: 10px;
+    }
+
+    .Header_wrapper .Header_logo img {
+        width: auto;
+    }
+
+    .Header_wrapper .Header_profile {
+        width: auto;
+    }
 }
 
 /* header css end */
+
+
+/* side style start*/
+.sidebar_wrapper .sidebar_menu h4 {
+    color: #AAA3A0;
+    font-family: var(--primary-font);
+    font-weight: 700;
+}
+
+.menu_item .menu_wrapper a svg {
+    color: #292929;
+}
+
+.menu_item .menu_wrapper {
+    color: #2c2c2c;
+    font-family: var(--primary-font);
+    font-weight: 600;
+    border-bottom: 1px solid #EBEBEB;
+}
+
+/* side style end*/

@@ -2,19 +2,21 @@
 import React from "react";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
+import { useState } from "react";
 
 const page = () => {
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <div>
-      <Header />
+      <Header isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="home_page_wrapper flex">
-        <div className="Left_content">
+        <div className={`Left_content  bg-white ${ isOpen?"active":""}`}>
           <Sidebar />
         </div>
         <div className="Right_content">
           <div className="content_wrapper">
-            <h1 className="text-2xl font-bold">Dashboard</h1>
-            <p className="text-gray-500">Welcome to the dashboard!</p>
+            <h1 className="text-2xl font-bold text-amber-300 pl-7 pt-7">Dashboard</h1>
+            <p className="text-2xl font-bold text-amber-300 pl-7 pt-">Welcome to the dashboard!</p>
           </div>
         </div>
       </div>
