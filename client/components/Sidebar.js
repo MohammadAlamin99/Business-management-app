@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation"; // Note: 'navigation' instead of 
 import React from "react";
 import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
-import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { PiShoppingCartLight } from "react-icons/pi";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -16,8 +16,8 @@ const Sidebar = () => {
           <ul>
             <li className="menu_item">
               <div className="menu_wrapper">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className={`flex items-center gap-2.5 pl-2.5 pt-3 pb-3 pr-2.5 text-base ${
                     pathname === "/" ? "navActive" : ""
                   }`}
@@ -30,14 +30,14 @@ const Sidebar = () => {
             </li>
             <li className="menu_item">
               <div className="menu_wrapper">
-                <Link 
-                  href="/ecommerce" 
+                <Link
+                  href="/order"
                   className={`flex items-center gap-2.5 pl-2.5 pt-3 pb-3 pr-2.5 text-base ${
-                    pathname === "/ecommerce" ? "navActive" : ""
+                    pathname === "/order" ? "navActive" : ""
                   }`}
                 >
-                  <HiOutlineShoppingBag className="w-5 h-5" />
-                  Ecommerce
+                  <PiShoppingCartLight className="w-5 h-5" />
+                  Orders
                   <IoIosArrowForward className="ml-auto" />
                 </Link>
               </div>
