@@ -56,10 +56,10 @@ const Page = () => {
                   </td>
                   <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">John Doe</td>
                   <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">2023-10-01</td>
+                  <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">$100.00</td>
                   <td className="popins-font flex items-center gap-2.5 text-[14px] font-normal text-start px-[30px] py-[38px] text-[#9199AD]">
                     <div className="w-[12px] h-[12px] bg-[#27D095] rounded-[50%]"></div>
                     Shipped</td>
-                  <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">$100.00</td>
                 </tr>
                 <tr className="table-data">
                   <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">
@@ -75,10 +75,10 @@ const Page = () => {
                   </td>
                   <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">John Doe</td>
                   <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">2023-10-01</td>
+                  <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">$100.00</td>
                   <td className="popins-font flex items-center gap-2.5 text-[14px] font-normal text-start px-[30px] py-[38px] text-[#9199AD]">
                     <div className="w-[12px] h-[12px] bg-[#27D095] rounded-[50%]"></div>
                     Shipped</td>
-                  <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">$100.00</td>
                 </tr>
                 <tr className="table-data">
                   <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">
@@ -94,10 +94,10 @@ const Page = () => {
                   </td>
                   <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">John Doe</td>
                   <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">2023-10-01</td>
+                  <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">$100.00</td>
                   <td className="popins-font flex items-center gap-2.5 text-[14px] font-normal text-start px-[30px] py-[38px] text-[#9199AD]">
                     <div className="w-[12px] h-[12px] bg-[#27D095] rounded-[50%]"></div>
                     Shipped</td>
-                  <td className="popins-font text-[14px] font-normal text-start px-[30px] py-[30px] text-[#9199AD]">$100.00</td>
                 </tr>
               </tbody>
             </table>
