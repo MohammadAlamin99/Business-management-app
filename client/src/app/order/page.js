@@ -12,13 +12,22 @@ const Page = () => {
       <div className="Dashboard flex">
         <Sidebar />
         <div className="main-order-list mt-[50px] w-full bg-[#292F45] p-[30px] rounded-[20px]">
-          <h4 className="ibm-font text-[20px] font-[500] text-[#F3F4F7] mb-[20px]">
-            Data table records
-          </h4>
-          <p className="popins-font max-w-[590px] text-[14px] font-[400] text-[#9199AD] mb-[50px]">
-            All the users that are registered on your store are displayed in data tables with some
-            of their basic information and history.
-          </p>
+          <div className="flex items-center justify-between">
+            <div className="header-text">
+              <h4 className="ibm-font text-[20px] font-[500] text-[#F3F4F7] mb-[20px]">
+                Data table records
+              </h4>
+              <p className="popins-font max-w-[590px] text-[14px] font-[400] text-[#9199AD] mb-[50px]">
+                All the users that are registered on your store are displayed in data tables with some
+                of their basic information and history.
+              </p>
+            </div>
+            <div className="header-button">
+              <button className="popins-font text-[16px] font-[500] text-[#F3F4F7] bg-[#FF8E29] rounded-[30px] px-[24px] py-[12px]">
+                Add new product
+              </button>
+            </div>
+          </div>
 
           {/* table */}
           <div className="overflow-x-auto bg-[#151D32] rounded-[20px]">
@@ -92,6 +101,9 @@ const Page = () => {
                 </tr>
               </tbody>
             </table>
+            <div className="pagination py-[43px] px-[30px] border-t border-[#353C56]">
+              <span className="popins-font text-[#9199AD] text-[12px]">Showing 7 of 15 orders</span>
+            </div>
           </div>
         </div>
       </div>
