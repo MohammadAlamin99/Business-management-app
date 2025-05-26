@@ -1,12 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Sidebar from "../../../components/Sidebar";
 import Image from "next/image";
 import userAvatar from "../../../assets/image/userAvatar.png";
 import ReactPaginate from "react-paginate";
+import { orderListRequest } from "../../../apiRequest/apiRequest";
 
-// Mock data - replace with your actual data fetching
-const mockOrders = Array.from({ length: 15 }, (_, i) => ({
+// Mock data 
+const mockOrders = Array.from({ length: 50 }, (_, i) => ({
   id: i + 1,
   customer: `Customer ${i + 1}`,
   orderId: `ORD-${String(i + 1).padStart(3, '0')}`,
@@ -16,7 +17,7 @@ const mockOrders = Array.from({ length: 15 }, (_, i) => ({
   avatar: userAvatar
 }));
 
-const ORDERS_PER_PAGE = 5;
+const ORDERS_PER_PAGE = 3;
 
 export default function OrdersPage() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -38,6 +39,13 @@ export default function OrdersPage() {
       default: return `${base} bg-[#9199AD]`;
     }
   };
+
+  useEffect(()=>{
+    (async()=>{
+      let data = await orderListRequest(currentPage, ORDERS_PER_PAGE);
+      console.log(data);
+    })()
+  })
 
   return (
     <div className="flex">
@@ -133,3 +141,4 @@ export default function OrdersPage() {
     </div>
   );
 }
+
