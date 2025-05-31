@@ -6,8 +6,8 @@ const page = () => {
   return (
     <div>
       <div className="Dashboard">
-      <Sidebar />
-      <h1>Welcome to the Home Page</h1>
+        <Sidebar />
+        <h1>Welcome to the Home Page</h1>
       </div>
     </div>
   );
