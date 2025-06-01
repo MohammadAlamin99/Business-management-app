@@ -28,7 +28,10 @@ const Header = () => {
         <div className="user-wrapper flex items-center gap-[15px]">
           <Image
             src={userImg}
+            alt="User Avatar"
             className="user-avatar w-[45px] h-[45px] rounded-[50%] object-cover"
+            width={45}
+            height={45}
           />
           <div className="user-info pr-[30px] cursor-pointer">
             <span className="user-name popins-font text-[14px] text-[#F3F4F7] font-normal flex items-center gap-[15px]">
@@ -41,8 +44,8 @@ const Header = () => {
                 fill="none"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M16.843 10.711C16.951 10.57 17 10.411 17 10.255C17 9.866 16.694 9.5 16.251 9.5H7.75C7.305 9.5 7 9.867 7 10.255C7 10.412 7.05 10.571 7.159 10.712C8.362 12.266 10.411 14.911 11.417 16.21C11.559 16.394 11.777 16.5 12.009 16.5C12.239 16.5 12.458 16.393 12.6 16.209C13.602 14.91 15.644 12.264 16.843 10.711Z"
                   fill="#F3F4F7"
                 />

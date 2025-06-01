@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Sidebar from "../../../components/Sidebar";
-import Image from "next/image";
+// import Image from "next/image";
 import ReactPaginate from "react-paginate";
 import { orderListRequest } from "../../../apiRequest/apiRequest";
 import Header from "../../../components/Header";
@@ -79,12 +79,13 @@ export default function OrdersPage() {
                       >
                         <td className="popins-font text-[14px] font-normal px-[30px] py-[30px]">
                           <div className="flex items-center gap-3">
-                            <Image
+                            {/* <Image
                               src=""
                               width={40}
                               height={40}
                               className="rounded-full"
-                            />
+                              alt="Customer Avatar"
+                            /> */}
                             <span className="text-[#F3F4F7]">
                               {item.customer}
                             </span>
