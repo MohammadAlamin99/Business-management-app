@@ -24,7 +24,7 @@ export default function OrdersPage() {
   }, [currentPage]);
 
   const orderList = data?.data;
-  console.log("Order List:", orderList);
+  console.log("Order List:", data);
 
   return (
     <div>
@@ -126,7 +126,7 @@ export default function OrdersPage() {
                             )
                           })}
                           <span className="popins-font text-[#9199AD] text-[14px] font-normal mr-2.5">
-                            Shipping cost : TK. {item?.shipping_cost} 
+                            Shipping cost : TK. {item?.shipping_cost}
                           </span>
                           <span className="popins-font text-[#9199AD] text-[14px] font-normal">
                             Total : TK. {item?.total}
@@ -168,7 +168,7 @@ export default function OrdersPage() {
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-[30px] py-[25px] border-t border-[#353C56]">
                 <span className="popins-font text-[12px] text-[#9199AD]">
-                  Showing 7 of 15 orders
+                  Showing {orderList?.length || 0} of {data?.pagination?.total || 0} orders
                 </span>
 
                 <ReactPaginate
