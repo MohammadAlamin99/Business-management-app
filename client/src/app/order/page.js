@@ -1,7 +1,7 @@
+
 "use client";
 import { useEffect, useState } from "react";
 import Sidebar from "../../../components/Sidebar";
-// import Image from "next/image";
 import ReactPaginate from "react-paginate";
 import { orderListRequest } from "../../../apiRequest/apiRequest";
 import Header from "../../../components/Header";
@@ -65,7 +65,10 @@ export default function OrdersPage() {
                         Product
                       </th>
                       <th className="ibm-font text-[16px] font-medium text-[#F3F4F7] text-start px-[30px] py-[30px]">
-                        Revenue
+                        Address
+                      </th>
+                      <th className="ibm-font text-[16px] font-medium text-[#F3F4F7] text-start px-[30px] py-[30px]">
+                        Date
                       </th>
                       <th className="ibm-font text-[16px] font-medium text-[#F3F4F7] text-start px-[30px] py-[30px]">
                         Status
@@ -83,10 +86,10 @@ export default function OrdersPage() {
                             <span className="text-[#F3F4F7]">
                               {item.full_name}
                             </span>
-                            <span className="text-[#F3F4F7]">
+                            <span className="text-[#9199AD]">
                               {item.phone_number}
                             </span>
-                            <span className="text-[#F3F4F7]">
+                            <span className="text-[#9199AD]">
                               {item.email}
                             </span>
                           </div>
@@ -98,38 +101,62 @@ export default function OrdersPage() {
                           {item?.order_summary?.map((index, id) => {
                             return (
                               <div key={id} className="">
-                                <div>
-                                  <span className="text-[#F3F4F7] text-[12px] font-normal">
+                                <div className="mb-2.5">
+                                  <span className="text-[#9199AD] text-[12px] font-normal">
                                     {index?.product?.title}
                                   </span>
                                 </div>
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-2 mb-2.5">
                                   <img
                                     src={index?.product?.image}
                                     alt={index?.product_name}
-                                    className="w-[30px] h-[30px] rounded"
+                                    className="w-[60px] h-[60px] rounded bg-[#fff] p-[5px]"
                                   />
-                                  <span>TK. {index?.product?.price}</span>
-                                  <span className="text-[#F3F4F7] text-[12px] font-normal">
-                                    QTY : {index?.qty} x
-                                    <span className="text-[#FF8E29]">
-                                      Color: {index?.color}
+                                  <div className="flex flex-col">
+                                    <span className="popins-font text-[#9199AD]">TK. {index?.product?.price}</span>
+                                    <span className="popins-font text-[#9199AD] text-[12px] font-normal">
+                                      QTY : {index?.qty} x
                                     </span>
-                                  </span>
+                                    <span className="popins-font text-[#9199AD]">
+                                      Color: {index?.color || "N/A"}
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
                             )
                           })}
-                          <span className="text-[#F3F4F7] text-[12px] font-normal">
+                          <span className="popins-font text-[#9199AD] text-[14px] font-normal mr-2.5">
+                            Shipping cost : TK. {item?.shipping_cost} 
+                          </span>
+                          <span className="popins-font text-[#9199AD] text-[14px] font-normal">
                             Total : TK. {item?.total}
                           </span>
                         </td>
                         <td className="popins-font text-[14px] font-normal text-[#9199AD] px-[30px] py-[30px]">
-                          {item?.revenue}
+                          {item?.full_address}
+                        </td>
+                        <td className="popins-font text-[14px] font-normal text-[#9199AD] px-[30px] py-[30px]">
+                          {item?.placed_at
+                            ? new Date(item.placed_at).toLocaleString("en-US", {
+                              year: "numeric",
+                              month: "short",
+                              day: "2-digit",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                              hour12: true,
+                            })
+                            : "N/A"}
                         </td>
                         <td className="popins-font text-[14px] font-normal text-[#9199AD] px-[30px] py-[30px]">
                           <div className="flex items-center gap-2">
-                            {/* <span className={getStatusStyles(item?.status)} /> */}
+                            <div
+                              className={`circle w-[12px] h-[12px] rounded-[50%] 
+                                ${item?.order_status === "Pending" ? "bg-yellow-500"
+                                  : item?.order_status === "Confirmed" ? "bg-green-500"
+                                    : item?.order_status === "Shipped" ? "bg-red-500"
+                                      : "bg-red-500"
+                                }`}
+                            ></div>
                             {item?.order_status}
                           </div>
                         </td>
@@ -140,9 +167,9 @@ export default function OrdersPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-[30px] py-[25px] border-t border-[#353C56]">
-                {/* <span className="popins-font text-[12px] text-[#9199AD]">
-              Showing {offset + 1} to {Math.min(offset + ORDERS_PER_PAGE, mockOrders.length)} of {mockOrders.length} orders
-            </span> */}
+                <span className="popins-font text-[12px] text-[#9199AD]">
+                  Showing 7 of 15 orders
+                </span>
 
                 <ReactPaginate
                   breakLabel="..."
@@ -151,19 +178,19 @@ export default function OrdersPage() {
                   pageRangeDisplayed={3}
                   marginPagesDisplayed={1}
                   pageCount={pageCount}
-                  previousLabel="Previous"
+                  previousLabel="Prev"
                   renderOnZeroPageCount={null}
                   containerClassName="flex items-center gap-1 sm:gap-2 cursor-pointer"
-                  pageClassName="flex"
-                  pageLinkClassName="px-2 py-1 sm:px-3 sm:py-1 text-[12px] text-[#9199AD] hover:text-[#F3F4F7] rounded"
-                  activeClassName="bg-[#FF8E29] rounded"
-                  activeLinkClassName="text-[#F3F4F7]"
+                  pageClassName="flex bg-[#353C56] rounded-[50%] aspect-[1] flex items-center justify-center"
+                  pageLinkClassName="popins-font px-2 py-1 sm:px-3 sm:py-1 text-[12px] text-[#FF8E29] rounded"
+                  activeClassName="bg-[#FF8E29] rounded-[50%] aspect-[1] flex items-center justify-center"
+                  activeLinkClassName="popins-font text-[#fff]"
                   previousClassName="flex"
-                  previousLinkClassName="px-2 py-1 sm:px-3 sm:py-1 text-[12px] text-[#9199AD] hover:text-[#F3F4F7] rounded"
+                  previousLinkClassName="popins-font px-2 py-1 sm:px-3 sm:py-1 text-[12px] text-[#9199AD] rounded"
                   nextClassName="flex"
-                  nextLinkClassName="px-2 py-1 sm:px-3 sm:py-1 text-[12px] text-[#9199AD] hover:text-[#F3F4F7] rounded"
+                  nextLinkClassName="popins-font px-2 py-1 sm:px-3 sm:py-1 text-[12px] text-[#FF8E29] rounded"
                   breakClassName="flex"
-                  breakLinkClassName="px-2 py-1 text-[12px] text-[#9199AD]"
+                  breakLinkClassName="popins-font px-2 py-1 text-[12px] text-[#9199AD]"
                   disabledClassName="opacity-50 cursor-not-allowed"
                 />
               </div>
