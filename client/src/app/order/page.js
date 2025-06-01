@@ -24,6 +24,7 @@ export default function OrdersPage() {
   }, [currentPage]);
 
   const orderList = data?.data;
+  console.log("Order List:", orderList);
 
   return (
     <div>
@@ -78,24 +79,50 @@ export default function OrdersPage() {
                         className="border-b border-[#353C56] last:border-0"
                       >
                         <td className="popins-font text-[14px] font-normal px-[30px] py-[30px]">
-                          <div className="flex items-center gap-3">
-                            {/* <Image
-                              src=""
-                              width={40}
-                              height={40}
-                              className="rounded-full"
-                              alt="Customer Avatar"
-                            /> */}
+                          <div className="flex items-start flex-col gap-[10px]">
                             <span className="text-[#F3F4F7]">
-                              {item.customer}
+                              {item.full_name}
+                            </span>
+                            <span className="text-[#F3F4F7]">
+                              {item.phone_number}
+                            </span>
+                            <span className="text-[#F3F4F7]">
+                              {item.email}
                             </span>
                           </div>
                         </td>
                         <td className="popins-font text-[14px] font-normal text-[#9199AD] px-[30px] py-[30px]">
-                          {item?.order_id}
+                          #{item?.order_id}
                         </td>
                         <td className="popins-font text-[14px] font-normal text-[#9199AD] px-[30px] py-[30px]">
-                          {item?.product}
+                          {item?.order_summary?.map((index, id) => {
+                            return (
+                              <div key={id} className="">
+                                <div>
+                                  <span className="text-[#F3F4F7] text-[12px] font-normal">
+                                    {index?.product?.title}
+                                  </span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <img
+                                    src={index?.product?.image}
+                                    alt={index?.product_name}
+                                    className="w-[30px] h-[30px] rounded"
+                                  />
+                                  <span>TK. {index?.product?.price}</span>
+                                  <span className="text-[#F3F4F7] text-[12px] font-normal">
+                                    QTY : {index?.qty} x
+                                    <span className="text-[#FF8E29]">
+                                      Color: {index?.color}
+                                    </span>
+                                  </span>
+                                </div>
+                              </div>
+                            )
+                          })}
+                          <span className="text-[#F3F4F7] text-[12px] font-normal">
+                            Total : TK. {item?.total}
+                          </span>
                         </td>
                         <td className="popins-font text-[14px] font-normal text-[#9199AD] px-[30px] py-[30px]">
                           {item?.revenue}
