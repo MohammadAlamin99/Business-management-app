@@ -24,7 +24,6 @@ export default function OrdersPage() {
   }, [currentPage]);
 
   const orderList = data?.data;
-  console.log("Order List:", data);
 
   return (
     <div>
@@ -132,8 +131,8 @@ export default function OrdersPage() {
                             Total : TK. {item?.total}
                           </span>
                         </td>
-                        <td className="popins-font text-[14px] font-normal text-[#9199AD] px-[30px] py-[30px]">
-                          {item?.full_address}
+                        <td className="popins-font text-[14px] font-normal text-[#9199AD] px-[30px] py-[30px] w-[200px]">
+                          {item?.full_address || "N/A"}
                         </td>
                         <td className="popins-font text-[14px] font-normal text-[#9199AD] px-[30px] py-[30px]">
                           {item?.placed_at
